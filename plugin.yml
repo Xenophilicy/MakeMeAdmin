@@ -1,0 +1,21 @@
+name: MakeMeAdmin
+main: Xenophilicy\MakeMeAdmnin\MakeMeAdmin
+version: "1.0.0-Alpha"
+api:
+- 3.0.0-ALPHA7
+- 3.0.0-ALPHA8
+- 3.0.0-ALPHA9
+load:
+author: "Xenophilicy"
+website: 
+permissions:
+	mmadmin.command:
+		description: "Use all MMA commands."
+		children:
+			mmadmin.command.switchadmin
+				description: "Allows user to switch to Admin easily"
+			mmadmin.command.switchhelper
+				description: "Allows user to switch to Helper easily"
+			mmadmin.command.switchplayer
+				description: "Allows user to switch to Player easily"
+			
