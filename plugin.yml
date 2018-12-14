@@ -12,7 +12,7 @@ commands:
   description: Change your in-game rank quickly!
   permission: makemeadmin.use.2
  makemeadmin:
-  description: Change your in-game rank quickly!
+  description: Get info about the plugin MakeMeAdmin!
   permission: makemeadmin.use.3
 permissions:
  makemeadmin.use.1:
