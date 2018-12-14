@@ -4,7 +4,7 @@
 
 ## MakeMeAdmin Details
 * **API:** 3.0.0
-* **Version:** 1.0.0
+* **Version:** 1.0.1
 * **Basic Description:** Easily switch ranks with a simple command and a click of the mouse!
 * _Easy to edit config file_
 * _Simple code for editing and debugging_
