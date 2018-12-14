@@ -1,6 +1,6 @@
 name: MakeMeAdmin
 author: Xenophilicy
-version: 1.0.0
+version: 1.0.1
 description: Lets you quickly switch your role with PurePerms as a server Admin/Player/Helper/Moderator etc.
 main: MakeMeAdmin\main
 api: 3.0.0
