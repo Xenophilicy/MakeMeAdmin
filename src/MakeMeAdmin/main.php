@@ -68,7 +68,10 @@ class Main extends PluginBase implements Listener{
                 $this->rankOptions($sender);
                 break;
             case'makemeadmin':
-                $this->rankOptions($sender);
+                $sender->sendMessage("§7-=== §6MakeMeAdmin §7===-");
+                $sender->sendMessage("§eAuthor: §aXenophillicy");
+                $sender->sendMessage("§eDescription: §aEasily change ranks with a command!");
+                $sender->sendMessage("§7-====================-");
                 break;
     }
     return true;
