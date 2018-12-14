@@ -1,3 +1,5 @@
-# MakeMeAdmin (UNFINISHED)
+# MakeMeAdmin
 
-Just to make Pocketmine PurePerms ranks a bit easier to use!
+## Just to make Pocketmine PurePerms ranks a bit easier to use!
+
+* Use the command */mma* or */mmadmin* or */makemeadmin*
