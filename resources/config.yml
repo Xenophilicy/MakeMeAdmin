@@ -1,79 +1,44 @@
 #MADE BY:
-# __    __                                          __        __  __  __                     
-#/  |  /  |                                        /  |      /  |/  |/  |                    
-#$$ |  $$ |  ______   _______    ______    ______  $$ |____  $$/ $$ |$$/   _______  __    __ 
-#$$  \/$$/  /      \ /       \  /      \  /      \ $$      \ /  |$$ |/  | /       |/  |  /  |
-# $$  $$<  /$$$$$$  |$$$$$$$  |/$$$$$$  |/$$$$$$  |$$$$$$$  |$$ |$$ |$$ |/$$$$$$$/ $$ |  $$ |
-#  $$$$  \ $$    $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$ |$$ |$$ |      $$ |  $$ |
-#$$ /$$  |$$$$$$$$/ $$ |  $$ |$$ \__$$ |$$ |__$$ |$$ |  $$ |$$ |$$ |$$ |$$ \_____ $$ \__$$ |#
-#$$ |  $$ |$$       |$$ |  $$ |$$    $$/ $$    $$/ $$ |  $$ |$$ |$$ |$$ |$$       |$$    $$ |
-#$$/   $$/  $$$$$$$/ $$/   $$/  $$$$$$/  $$$$$$$/  $$/   $$/ $$/ $$/ $$/  $$$$$$$/  $$$$$$$ |
+#   __    __                                          __        __  __  __                     
+#  /  |  /  |                                        /  |      /  |/  |/  |                    
+#  $$ |  $$ |  ______   _______    ______    ______  $$ |____  $$/ $$ |$$/   _______  __    __ 
+#  $$  \/$$/  /      \ /       \  /      \  /      \ $$      \ /  |$$ |/  | /       |/  |  /  |
+#   $$  $$<  /$$$$$$  |$$$$$$$  |/$$$$$$  |/$$$$$$  |$$$$$$$  |$$ |$$ |$$ |/$$$$$$$/ $$ |  $$ |
+#    $$$$  \ $$    $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$ |$$ |$$ |      $$ |  $$ |
+#  $$ /$$  |$$$$$$$$/ $$ |  $$ |$$ \__$$ |$$ |__$$ |$$ |  $$ |$$ |$$ |$$ |$$ \_____ $$ \__$$ |#
+#  $$ |  $$ |$$       |$$ |  $$ |$$    $$/ $$    $$/ $$ |  $$ |$$ |$$ |$$ |$$       |$$    $$ |
+#  $$/   $$/  $$$$$$$/ $$/   $$/  $$$$$$/  $$$$$$$/  $$/   $$/ $$/ $$/ $$/  $$$$$$$/  $$$$$$$ |
 #                                        $$ |                                      /  \__$$ |
 #                                        $$ |                                      $$    $$/ 
 #                                        $$/                                        $$$$$$/  
 
 #Message displayed when the plugin loads (after the default)
-Enable_Message: "§aXenoTransfer by §6Xenophilicy §ahas been enabled!"
+Enable_Message: "§eMakeMeAdmin §aby §6Xenophilicy §ahas been enabled!"
 
-#Message displayed when the plugin loads (after the default)
-Disable_Message: "§cXenoTransfer by §6Xenophilicy §chas been disabled!"
+#Message displayed when the plugin unloads (after the default)
+Disable_Message: "§eMakeMeAdmin §cby §6Xenophilicy §chas been disabled!"
 
+#Command used to change groups (Leave default for PurePerms)
+group_command: "setgroup"
 
-#You can leave any of these (except the first server) as false to disable them in the form
-
-#------------------------First Server-------------------------
-
-#Form label goes here
-Server_1_Label: "§6§lLobby Server"
-
-#Server IP goes here
-Server_1_IP: "xenoservers.ddns.net"
-
-#Server port goes here
-Server_1_Port: "19132"
-
-#------------------------Second Server------------------------
-
-#Form label goes here
-Server_2_Label: "§2§lPrison Server"
-
-#Server IP goes here
-Server_2_IP: "xenoservers.ddns.net"
-
-#Server port goes here
-Server_2_Port: "19133"
-
-#-------------------------Third Server-------------------------
-
-#Form label goes here
-Server_3_Label: "§5§lCreative Server"
-
-#Server IP goes here
-Server_3_IP: "xenoservers.ddns.net"
-
-#Server port goes here
-Server_3_Port: "19134"
-
-#-------------------------Fourth Server-------------------------
-
-#Form label goes here
-Server_4_Label: "§4§lPvP Server"
-
-#Server IP goes here
-Server_4_IP: "xenoservers.ddns.net"
-
-#Server port goes here
-Server_4_Port: "19135"
-
-#--------------------------Fifth Server--------------------------
-
-#Form label goes here
-Server_5_Label: false
-
-#Server IP goes here
-Server_5_IP: false
-
-#Server port goes here
-Server_5_Port: false
-
-#-------------------------------------------------------------
+#----------------------------------
+#Rank 1
+rank1_label: "Admin" #This is the label for the form
+rank1_alias: "adm" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
+#----------------------------------
+#Rank 2
+rank2_label: "Helper" #This is the label for the form
+rank2_alias: "hlp" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
+#----------------------------------
+#Rank 3
+rank3_label: "Moderator" #This is the label for the form
+rank3_alias: "mod" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
+#----------------------------------
+#Rank 4
+rank4_label: "Owner" #This is the label for the form
+rank4_alias: "own" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
+#----------------------------------
+#Rank 5
+rank5_label: "Player" #This is the label for the form
+rank5_alias: "plr" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
+#----------------------------------
