@@ -23,22 +23,22 @@ group_command: "setgroup"
 
 #----------------------------------
 #Rank 1
-rank1_label: "Admin" #This is the label for the form
-rank1_alias: "adm" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
+rank1_label: "Owner" #This is the label for the form
+rank1_alias: "owr" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
 #----------------------------------
 #Rank 2
-rank2_label: "Helper" #This is the label for the form
-rank2_alias: "hlp" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
+rank2_label: "Admin" #This is the label for the form
+rank2_alias: "adm" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
 #----------------------------------
 #Rank 3
 rank3_label: "Moderator" #This is the label for the form
 rank3_alias: "mod" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
 #----------------------------------
 #Rank 4
-rank4_label: "Owner" #This is the label for the form
-rank4_alias: "own" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
+rank4_label: "Helper" #This is the label for the form
+rank4_alias: "hlp" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
 #----------------------------------
 #Rank 5
-rank5_label: "Player" #This is the label for the form
-rank5_alias: "plr" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
+rank5_label: "Guest" #This is the label for the form
+rank5_alias: "gst" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
 #----------------------------------
