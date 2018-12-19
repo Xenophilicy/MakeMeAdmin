@@ -6,10 +6,10 @@ main: MakeMeAdmin\main
 api: 3.0.0
 commands:
  mma:
-  description: Change your in-game rank quickly!
+  description: Quickly Change your in-game rank!
   permission: makemeadmin.use.1
  mmadmin:
-  description: Change your in-game rank quickly!
+  description: Quickly Change your in-game rank!
   permission: makemeadmin.use.2
  makemeadmin:
   description: Get info about the plugin MakeMeAdmin!
