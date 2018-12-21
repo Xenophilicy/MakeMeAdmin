@@ -12,7 +12,7 @@ With this plugin, you can vey easily switch your group from **PurePerms** with a
 ```
 ***
 
-## XenoTansfer Details
+## MakeMeAdmin Details
 * **API:** 3.5.1
 * **Version:** 1.0.1
 * **Basic Description:** Easily switch ranks with a simple command and a click of the mouse!
@@ -27,4 +27,3 @@ With this plugin, you can vey easily switch your group from **PurePerms** with a
 
 ## Credits
 **@oKqzan**
-
