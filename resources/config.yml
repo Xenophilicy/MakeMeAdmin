@@ -1,4 +1,4 @@
-#MADE BY:
+# MADE BY:
 #   __    __                                          __        __  __  __                     
 #  /  |  /  |                                        /  |      /  |/  |/  |                    
 #  $$ |  $$ |  ______   _______    ______    ______  $$ |____  $$/ $$ |$$/   _______  __    __ 
@@ -12,33 +12,31 @@
 #                                        $$ |                                      $$    $$/ 
 #                                        $$/                                        $$$$$$/  
 
-#Message displayed when the plugin loads (after the default)
-Enable_Message: "§eMakeMeAdmin §aby §6Xenophilicy §ahas been enabled!"
-
-#Message displayed when the plugin unloads (after the default)
-Disable_Message: "§eMakeMeAdmin §cby §6Xenophilicy §chas been disabled!"
-
-#Command used to change groups (Leave default for PurePerms)
+# Command used to change groups (Leave default for PurePerms)
 group_command: "setgroup"
 
-#----------------------------------
-#Rank 1
-rank1_label: "Owner" #This is the label for the form
-rank1_alias: "owr" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
-#----------------------------------
-#Rank 2
-rank2_label: "Admin" #This is the label for the form
-rank2_alias: "adm" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
-#----------------------------------
-#Rank 3
-rank3_label: "Moderator" #This is the label for the form
-rank3_alias: "mod" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
-#----------------------------------
-#Rank 4
-rank4_label: "Helper" #This is the label for the form
-rank4_alias: "hlp" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
-#----------------------------------
-#Rank 5
-rank5_label: "Guest" #This is the label for the form
-rank5_alias: "gst" #Alias from the groups.yml file from your permission plugin (PurePerms as default)
-#----------------------------------
+# Each rank has a label and alias:
+# Label → The label will be the text you see in the UI
+# Alias → The alias is the name of the group in your groups.yml file
+
+# You can use '§' in the labels for colors and effects to show up on the UI
+
+rank1:
+  label: "§l§6Owner"
+  alias: "owr"
+
+rank2:
+  label: "§l§4Admin"
+  alias: "adm"
+
+rank3:
+  label: "§l§9Moderator"
+  alias: "mod"
+
+rank4:
+  label: "§l§eHelper"
+  alias: "hlp"
+
+rank5:
+  label: "§l§aGuest"
+  alias: "gst"
