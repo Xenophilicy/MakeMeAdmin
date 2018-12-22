@@ -3,7 +3,7 @@
 ### Just made to make PurePerms ranks a bit easier to use and switch between!
  
 ## Information
-With this plugin, you can vey easily switch your group from **PurePerms** with a simple command that pops a UI onto your screen thanks to integration of **FormAPI**! All you do from there is select which group you want to switch to, and voila! This plugin also uses permissions to determine which groups should popup for which players, depending on which nodes are added to your group or player file.
+With this plugin, you can vey easily switch your group from **PurePerms** with a simple command that pops a UI onto your screen thanks to integration of **FormAPI**! All you do from there is select which group you want to switch to, and voila! This plugin also uses permissions to determine which groups should popup for which players, depending on which nodes are added to your group or player file. The ones not available, show as "Locked" and are grayed out in the UI.
 
 ## Commands
 ```diff
