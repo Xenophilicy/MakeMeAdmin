@@ -1,28 +1,29 @@
-# EZPing
+# MakeMeAdmin
 
-### Enables you to check your ping with a very simple command!!
-
+### Just made to make PurePerms ranks a bit easier to use and switch between!
+ 
 ## Information
-With this plugin, I made it very simple for both the host, and the player to check their ping! All you do is type /ping and your ping in milliseconds will show and also a custom message set by the host in the config.yml file! Choose from five different ranges to set (Defaults are: Excellent, Good, Ok, Poor, Extremely Poor).
+With this plugin, you can vey easily switch your group from **PurePerms** with a simple command that pops a UI onto your screen thanks to integration of **FormAPI**! All you do from there is select which group you want to switch to, and voila! This plugin also uses permissions to determine which groups should popup for which players, depending on which nodes are added to your group or player file.
 
-You can find more info here on the wiki page: https://github.com/Xenophilicy/EZPing/wiki
 ## Commands
 ```diff
-/ping → Use to find your ping!
-/ezping → Get info about the plugin!
+/mma or /mmadmin → Get the form list of groups!
+/makemeadmin → Get info about the plugin!
 ```
 ***
 
-## EZPing Details
+## MakeMeAdmin Details
 * **API:** 3.5.1
 * **Version:** 1.2.0
-* **Basic Description:** Get your ping by typing /ping
+* **Basic Description:** Easily switch ranks with a simple command and a click of the mouse!
 * *Easy to edit config.yml file*
 * *Simple code for editing and debugging*
 ***
 
 ## Dependencies
-**None :)**
+**FormAPI →  https://github.com/jojoe77777/FormAPI**
+
+**PurePerms → https://github.com/PurePlugins/PurePerms**	
 
 ## Credits
-*My Discord Server for the range defaults* ***Invite Code: hNVehXe***
+**@oKqzan**
