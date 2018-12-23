@@ -26,3 +26,4 @@ With this plugin, you can vey easily switch your group from **PurePerms** with a
 
 ## Credits
 * [「oKqzan」](https://github.com/oKqzan/)
+* [Xenophilicy](https://github.com/Xenophilicy/)
