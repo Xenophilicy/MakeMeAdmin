@@ -25,4 +25,4 @@ With this plugin, you can vey easily switch your group from **PurePerms** with a
 **PurePerms → https://github.com/PurePlugins/PurePerms**	
 
 ## Credits
-**@oKqzan**
+* [「oKqzan」](https://github.com/oKqzan/)
