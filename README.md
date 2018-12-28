@@ -24,6 +24,8 @@ With this plugin, you can vey easily switch your group from **PurePerms** with a
 
 **PurePerms → https://github.com/PurePlugins/PurePerms**	
 
+**DevTools → https://github.com/pmmp/PocketMine-DevTools** *(If you are using the plugin folder method)*
+
 ## Credits
 * [「oKqzan」](https://github.com/oKqzan/)
 * [Xenophilicy](https://github.com/Xenophilicy/)
