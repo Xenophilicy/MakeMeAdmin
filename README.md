@@ -12,7 +12,7 @@ With this plugin, you can vey easily switch your group from **PurePerms** with a
 ***
 
 ## MakeMeAdmin Details
-* **API:** 3.5.1
+* **API:** 3.5.0+
 * **Version:** 1.2.0
 * **Basic Description:** Easily switch ranks with a simple command and a click of the mouse!
 * *Easy to edit config.yml file*
