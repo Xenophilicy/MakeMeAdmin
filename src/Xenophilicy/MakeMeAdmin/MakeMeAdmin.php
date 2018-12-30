@@ -43,7 +43,7 @@ use pocketmine\plugin\Plugin;
 use jojoe77777\FormAPI;
 use jojoe77777\FormAPI\SimpleForm;
 
-class Main extends PluginBase implements Listener{
+class MakeMeAdmin extends PluginBase implements Listener{
 
     private $config;
 
