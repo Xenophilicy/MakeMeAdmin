@@ -26,7 +26,7 @@
 #                           | $$                              
 #                           |__/                              
 
-namespace MakeMeAdmin;
+namespace Xenophilicy\MakeMeAdmin;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
