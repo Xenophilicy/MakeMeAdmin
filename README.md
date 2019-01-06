@@ -1,8 +1,6 @@
 # MakeMeAdmin
 [![HitCount](http://hits.dwyl.io/Xenophilicy/MakeMeAdmin.svg)](http://hits.dwyl.io/Xenophilicy/MakeMeAdmin)
-    <a href="https://discord.gg/HjJCwm5">
-        <img src="https://img.shields.io/discord/490677165289897995.svg?logo=discord"
-            alt="chat on Discord"></a>
+![](https://img.shields.io/discord/490677165289897995.svg?style=flat-square)
 
 # [![Xenophilicy](https://i.imgur.com/KIxx8cS.png)]()
 
