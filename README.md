@@ -18,15 +18,13 @@ With this plugin, you can very easily switch your group from **PurePerms** with 
 
 ## MakeMeAdmin Details
 * **API:** 3.5.0+
-* **Version:** 1.2.1
+* **Version:** 1.2.2
 * **Basic Description:** Easily switch ranks with a simple command and a click of the mouse!
 * *Easy to edit config.yml file*
 * *Simple code for editing and debugging*
 ***
 
 ## Dependencies
-**FormAPI →  https://github.com/jojoe77777/FormAPI**
-
 **PurePerms → https://github.com/PurePlugins/PurePerms**	
 
 **DevTools → https://github.com/pmmp/PocketMine-DevTools** *(If you are using the plugin folder method)*

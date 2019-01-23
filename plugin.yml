@@ -1,10 +1,10 @@
 name: MakeMeAdmin
 author: Xenophilicy
-version: 1.2.1
+version: 1.2.2
 description: Quickly switch your group from PurePerms, inside a simple UI.
 main: Xenophilicy\MakeMeAdmin\MakeMeAdmin
 website: https://github.com/Xenophilicy/MakeMeAdmin
-api: [3.0.0, 3.5.1, 4.0.0]
+api: 3.0.0
 commands:
   mma:
     description: Quickly change your rank!
@@ -14,8 +14,10 @@ commands:
     permission: makemeadmin.use.ui
   makemeadmin:
     description: Get info about MakeMeAdmin!
-    permission: makemeadmin.use.about
+    permission: makemeadmin.about
 permissions:
+  makemeadmin.about:
+    default: true
   makemeadmin.use:
     default: op
     description: Allows use of all MakeMeAdmin permissions
@@ -45,5 +47,3 @@ permissions:
           children:
             makemeadmin.use.ui:
             default: false
-        makemeadmin.use.about:
-          default: true

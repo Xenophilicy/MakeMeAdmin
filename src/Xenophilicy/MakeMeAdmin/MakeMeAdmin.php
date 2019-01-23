@@ -30,76 +30,51 @@ namespace Xenophilicy\MakeMeAdmin;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
+use pocketmine\command\{Command,CommandSender,CommandExecuter,ConsoleCommandSender};
 use pocketmine\utils\config;
 use pocketmine\scheduler\PluginTask;
-use pocketmine\command\CommandExecuter;
-use pocketmine\command\ConsoleCommandSender;
-use pocketmine\Server;
-use pocketmine\Player;
-use pocketmine\plugin\Plugin;
+use pocketmine\{Server,Player};
 
-use jojoe77777\FormAPI;
 use jojoe77777\FormAPI\SimpleForm;
 
 class MakeMeAdmin extends PluginBase implements Listener{
 
     private $config;
 
-    public function onLoad(){
+    public function onEnable(){
+        $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->saveDefaultConfig();
         $this->config = new Config($this->getDataFolder()."config.yml", Config::YAML);
         $this->config->getAll();
-        $this->getLogger()->info("§eMakeMeAdmin by §6Xenophilicy §eis loading...");
-    }
-
-    public function onEnable(){
-        $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->getLogger()->info("§6MakeMeAdmin§a has been enabled!");
+        $this->getLogger()->info("MakeMeAdmin has been enabled!");
         $pureinstalled = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
-        $forminstalled = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-        if($forminstalled == null){
-            $this->getLogger()->critical("Required dependancy 'FormAPI' not installed! Disabling plugin...");
-            $this->getServer()->getPluginManager()->disablePlugin($this);
-        }
         if($pureinstalled == null){
             $this->getLogger()->critical("Required dependancy 'PurePerms' not installed! Disabling plugin...");
             $this->getServer()->getPluginManager()->disablePlugin($this);
         }
     }
 
-    public function onDisable(){
-        $this->getLogger()->info("§6MakeMeAdmin§c has been disabled!");   
-    }
-
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
-        if($sender->hasPermission("makemeadmin.use.ui")) {
-            if ($sender instanceof Player){
-            $player = $sender->getPlayer();
-                switch($command->getName()){
-                    case'mma':
+        switch($command->getName()){
+            case'makemeadmin':
+                $sender->sendMessage("§7-=== §6MakeMeAdmin §7===-");
+                $sender->sendMessage("§eAuthor: §aXenophillicy");
+                $sender->sendMessage("§eDescription: §aEasily change ranks with a command!");
+                $sender->sendMessage("§7-====================-");
+                break;
+            case'mma'||'mmadmin':
+                if($sender->hasPermission("makemeadmin.use.ui")) {
+                    if ($sender instanceof Player){
                         $this->rankOptions($sender);
-                        break;
-                    case'mmadmin':
-                        $this->rankOptions($sender);
-                        break;
-                    case'makemeadmin':
-                        $sender->sendMessage("§7-=== §6MakeMeAdmin §7===-");
-                        $sender->sendMessage("§eAuthor: §aXenophillicy");
-                        $sender->sendMessage("§eDescription: §aEasily change ranks with a command!");
-                        $sender->sendMessage("§7-====================-");
-                        break;
+                    }
+                    else {
+                        $sender->sendMessage("§cThis is an in-game command only!");
+                    }
                 }
-                return true;
-            }
-            else {
-                $sender->sendMessage("§cThis is an in-game command only!");
-                return true;
-            }
-        }
-        else {
-            $sender->sendMessage("§cYou don't have permission to switch ranks!");
+                else {
+                    $sender->sendMessage("§cYou don't have permission to switch ranks!");
+                }
+                break;
         }
         return true;
     }
