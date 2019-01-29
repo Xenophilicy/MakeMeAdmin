@@ -13,30 +13,18 @@
 #                                        $$/                                        $$$$$$/  
 
 # Command used to change groups (Leave default for PurePerms)
-group_command: "setgroup"
+Group_Command: "setgroup"
 
-# Each rank has a label and alias:
+# Every rank added needs a label, alias, and permission:
 # Label → The label will be the text you see in the UI
 # Alias → The alias is the name of the group in your groups.yml file
+# Permission → Permission node required to switch to the rank
 
-# You can use '§' in the labels for colors and effects to show up on the UI
-
-rank1:
-  label: "§l§6Owner"
-  alias: "owr"
-
-rank2:
-  label: "§l§4Admin"
-  alias: "adm"
-
-rank3:
-  label: "§l§9Moderator"
-  alias: "mod"
-
-rank4:
-  label: "§l§eHelper"
-  alias: "hlp"
-
-rank5:
-  label: "§l§aGuest"
-  alias: "gst"
+# You can use '§' or '&' in the labels for colors and effects to show up on the UI
+# Add as many ranks as you'd like using this format → Label:Alias:Permission
+Ranks:
+  - "&l&6Owner:owr:rank.switch.owner"
+  - "&l&4Admin:adm:rank.switch.admin"
+  - "&l&9Moderator:mod:rank.switch.mod"
+  - "&l&eHelper:hlp:rank.switch.helper"
+  - "&l&aGuest:gst:rank.switch.guest"
