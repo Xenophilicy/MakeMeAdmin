@@ -40,10 +40,24 @@ class MakeMeAdmin extends PluginBase implements Listener{
             $this->getLogger()->critical("Required dependancy 'PurePerms' not installed! Disabling plugin...");
             $this->getServer()->getPluginManager()->disablePlugin($this);
         }
+        foreach ($this->ranks as $rank) {
+            $value = explode(":", $rank);
+            if(isset($value[3])){
+                switch($value[3]){
+                    case'url':
+                        break;
+                    case'path':
+                        break;
+                    default:
+                        $this->getLogger()->notice("Invalid image type! Rank: ".$value[0]."§r Image type: ".$value[3]." not supported. ");
+                }
+            }
+        }
     }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
-        if($command->getName() == 'mma'){
+        $name = $command->getName();
+        if($name == 'mma' || $name == 'switch' || $name == 'rankch'){
             if($sender->hasPermission("makemeadmin.use.ui")) {
                 if ($sender instanceof Player){
                     $this->rankOptions($sender);
@@ -88,7 +102,17 @@ class MakeMeAdmin extends PluginBase implements Listener{
             $value = explode(":", $rank);
             $value = str_replace("&", "§", $value);
             if($player->hasPermission($value[2])){
-                $form->addButton($value[0]);
+                if(isset($value[3])){
+                    if($value[3] == "url"){
+                        $form->addButton($value[0], 1, "https://".$value[4]);
+                    }
+                    if($value[3] == "path"){
+                        $form->addButton($value[0], 0, $value[4]);
+                    }
+                }
+                else{
+                    $form->addButton($value[0]);
+                }
             }
             else{
                 $value = $this->removeColor($value);

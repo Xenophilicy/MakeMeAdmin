@@ -21,10 +21,12 @@ Group_Command: "setgroup"
 # Permission → Permission node required to switch to the rank
 
 # You can use '§' or '&' in the labels for colors and effects to show up on the UI
-# Add as many ranks as you'd like using this format → Label:Alias:Permission
+# For images, use 'url' or 'path' to show an image in the menus (or leave blank to disable)
+# Note: If you are using a URL, do NOT include the 'https://' or 'http://' in the link!
+# Add as many ranks as you'd like using this format → Label:Alias:Permission:ImageType:Path/URL
 Ranks:
-  - "&l&6Owner:owr:rank.switch.owner"
-  - "&l&4Admin:adm:rank.switch.admin"
-  - "&l&9Moderator:mod:rank.switch.mod"
-  - "&l&eHelper:hlp:rank.switch.helper"
-  - "&l&aGuest:gst:rank.switch.guest"
+  - "&l&6Owner:owr:rank.switch.owner:url:i.imgur.com/HV56aOj.png"
+  - "&l&4Admin:adm:rank.switch.admin:url:i.imgur.com/f723Zql.png"
+  - "&l&9Moderator:mod:rank.switch.mod:url:i.imgur.com/UzQf61Q.png"
+  - "&l&eHelper:hlp:rank.switch.helper:url:i.imgur.com/0bsxlW1.png"
+  - "&l&aGuest:gst:rank.switch.guest:url:i.imgur.com/RFwGAUb.png"
