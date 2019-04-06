@@ -15,12 +15,12 @@
 
 namespace Xenophilicy\MakeMeAdmin;
 
+use pocketmine\command\{Command,CommandSender,ConsoleCommandSender};
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
-use pocketmine\command\{Command,CommandSender,ConsoleCommandSender};
 use pocketmine\utils\config;
-use pocketmine\scheduler\PluginTask;
-use pocketmine\{Server,Player};
+use pocketmine\Player;
+use pocketmine\utils\TextFormat as TF;
 
 use Xenophilicy\MakeMeAdmin\libs\jojoe77777\FormAPI\SimpleForm;
 
@@ -37,7 +37,7 @@ class MakeMeAdmin extends PluginBase implements Listener{
         $this->getLogger()->info("MakeMeAdmin has been enabled!");
         $pureinstalled = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
         if($pureinstalled == null){
-            $this->getLogger()->critical("Required dependancy 'PurePerms' not installed! Disabling plugin...");
+            $this->getLogger()->critical("Required dependency 'PurePerms' not installed! Disabling plugin...");
             $this->getServer()->getPluginManager()->disablePlugin($this);
         }
         foreach ($this->ranks as $rank) {
@@ -57,7 +57,7 @@ class MakeMeAdmin extends PluginBase implements Listener{
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
         $name = $command->getName();
-        if($name == 'mma' || $name == 'switch' || $name == 'rankch'){
+        if($name == 'mma'){
             if($sender->hasPermission("makemeadmin.use.ui")) {
                 if ($sender instanceof Player){
                     $this->rankOptions($sender);
@@ -115,17 +115,10 @@ class MakeMeAdmin extends PluginBase implements Listener{
                 }
             }
             else{
-                $value = $this->removeColor($value);
+                $value[0] = TF::clean($value[0]);
                 $form->addButton("§r§8".$value[0]." (Locked)");
             }
         }
         $form->sendToPlayer($player);
-    }
-
-    public function removeColor($string){
-        foreach (['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','k','l','m','n','o','o'] as $target){
-        $string = str_replace("§".$target, '', $string);
-        }
-        return $string;
     }
 }
