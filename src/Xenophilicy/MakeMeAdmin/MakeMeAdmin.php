@@ -39,14 +39,15 @@ class MakeMeAdmin extends PluginBase implements Listener{
         if($pureinstalled == null){
             $this->getLogger()->error("Required dependency 'PurePerms' not installed! Disabling plugin...");
             $this->getServer()->getPluginManager()->disablePlugin($this);
+            return;
         }
         foreach ($this->ranks as $rank) {
             $value = explode(":", $rank);
             if(isset($value[3])){
                 switch($value[3]){
-                    case'url':
+                    case 'url':
                         break;
-                    case'path':
+                    case 'path':
                         break;
                     default:
                         $this->getLogger()->warning("Invalid image type! Rank: ".$value[0].TF::RESET." Image type: ".$value[3]." not supported. ");
