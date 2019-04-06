@@ -39,17 +39,20 @@ class MakeMeAdmin extends PluginBase implements Listener{
         if($pureinstalled == null){
             $this->getLogger()->critical("Required dependency 'PurePerms' not installed! Disabling plugin...");
             $this->getServer()->getPluginManager()->disablePlugin($this);
+            return;
         }
         foreach ($this->ranks as $rank) {
             $value = explode(":", $rank);
             if(isset($value[3])){
                 switch($value[3]){
-                    case'url':
+                    case 'url':
                         break;
-                    case'path':
+                    case 'path':
                         break;
                     default:
-                        $this->getLogger()->notice("Invalid image type! Rank: ".$value[0]."§r Image type: ".$value[3]." not supported. ");
+                        $value = $this->removeColor(str_replace("&", "§", $value));
+                        $this->getLogger()->notice("Invalid image type! Rank: ".TF::YELLOW.$value[0].TF::AQUA." Image type: ".TF::RED.$value[3].TF::AQUA." not supported.");
+                        break;
                 }
             }
         }
@@ -63,11 +66,11 @@ class MakeMeAdmin extends PluginBase implements Listener{
                     $this->rankOptions($sender);
                 }
                 else {
-                    $sender->sendMessage("§cThis is an in-game command only!");
+                    $sender->sendMessage(TF::RED."This is an in-game command only!");
                 }
             }
             else {
-                $sender->sendMessage("§cYou don't have permission to switch ranks!");
+                $sender->sendMessage(TF::RED."You don't have permission to switch ranks!");
             }
         }
         return true;
@@ -86,18 +89,18 @@ class MakeMeAdmin extends PluginBase implements Listener{
                 $value = str_replace("&", "§", $value);
                 if($player->hasPermission($value[2])){
                     $this->getServer()->getCommandMap()->dispatch($consolecmd, $prefix.' '.$name.' '.$value[1]);
-                    $player->sendMessage("§aYou selected §e".$value[0]."§r§a as your rank!");
-                    $this->getLogger()->notice("§e".$name." has changed their group to ".$value[0]);  
+                    $player->sendMessage(TF::GREEN."You selected ".TF::YELLOW.$value[0].TF::RESET.TF::GREEN." as your rank!");
+                    $this->getLogger()->info(TF::YELLOW.$name." has changed their group to ".$value[0]);  
                 }
                 else{
-                    $player->sendMessage("§cYou don't have permission to switch to this rank!");
+                    $player->sendMessage(TF::RED."You don't have permission to switch to this rank!");
                     return;
                 }
             }
             return true;
         });
-        $form->setTitle("§6Server Ranks");
-        $form->setContent("§aPick the rank to switch to!");
+        $form->setTitle(TF::GOLD."Server Ranks");
+        $form->setContent(TF::GREEN."Pick the rank to switch to!");
         foreach ($this->ranks as $rank) {
             $value = explode(":", $rank);
             $value = str_replace("&", "§", $value);
