@@ -35,12 +35,6 @@ class MakeMeAdmin extends PluginBase implements Listener{
         $this->config->getAll();
         $this->ranks = $this->config->get("Ranks");
         $this->getLogger()->info("MakeMeAdmin has been enabled!");
-        $pureinstalled = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
-        if($pureinstalled == null){
-            $this->getLogger()->error("Required dependency 'PurePerms' not installed! Disabling plugin...");
-            $this->getServer()->getPluginManager()->disablePlugin($this);
-            return;
-        }
         foreach ($this->ranks as $rank) {
             $value = explode(":", $rank);
             if(isset($value[3])){
