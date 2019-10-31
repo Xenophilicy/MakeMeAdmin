@@ -35,7 +35,7 @@ class MakeMeAdmin extends PluginBase implements Listener{
         $this->config->getAll();
         $this->ranks = $this->config->get("Ranks");
         $this->getLogger()->info("MakeMeAdmin has been enabled!");
-        foreach ($this->ranks as $rank) {
+        foreach($this->ranks as $rank){
             $value = explode(":", $rank);
             if(isset($value[3])){
                 switch($value[3]){
@@ -49,20 +49,50 @@ class MakeMeAdmin extends PluginBase implements Listener{
             }
         }
     }
+    
+    private function startsWith($haystack, $needle){
+        $length = strlen($needle);
+        return (substr($haystack, 0, $length) === $needle);
+    }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
-        $name = $command->getName();
-        if($name == 'mma'){
-            if($sender->hasPermission("makemeadmin.use.ui")) {
-                if ($sender instanceof Player){
-                    $this->rankOptions($sender);
+        if(startsWith($command->getName(),"mma")){
+            if($sender instanceof Player){
+                $canSwitch = FALSE;
+                foreach($this->ranks as $rank){
+                    $value = explode(":", $rank);
+                    if($sender->hasPermission($value[2])){
+                        $canSwitch = TRUE;
+                    }
                 }
-                else {
-                    $sender->sendMessage(TF::RED."This is an in-game command only!");
-                }
-            }
-            else {
-                $sender->sendMessage(TF::RED."You don't have permission to switch ranks!");
+                if($canSwitch == FALSE){
+                    $sender->sendMessage(TF::RED."You don't have permission to switch ranks!");
+                }else{
+                    if($command->getName() == 'mma'){
+                        $this->rankOptions($sender);
+                    }else{
+                        if($args[0] in_array($this->ranks){
+                            $prefix = $this->config->get("Group_Command");
+                            $name = $player->getName();
+                            $consolecmd = new ConsoleCommandSender();
+                            $value = explode(":", $this->ranks[$args[0]);
+                            $value = str_replace("&", "§", $value);
+                            if($player->hasPermission($value[2])){
+                                $this->getServer()->getCommandMap()->dispatch($consolecmd, $prefix.' '.$name.' '.$value[1]);
+                                $player->sendMessage(TF::GREEN."You selected ".TF::YELLOW.$value[0].TF::RESET.TF::GREEN." as your rank!");
+                                $this->getLogger()->notice(TF::YELLOW.$name." has changed their group to ".$value[0]);
+                            }else{
+                                $player->sendMessage(TF::RED."You don't have permission to switch to this rank!");
+                                return;
+                            }
+                        }else{
+                            $player->sendMessage(TF::RED."The rank specified doesn't exist!");
+                            return;
+                        }
+                    }
+                }                       
+            }else{
+                $sender->sendMessage(TF::RED."This is an in-game command only!");
             }
         }
         return true;
@@ -72,8 +102,7 @@ class MakeMeAdmin extends PluginBase implements Listener{
         $form = new SimpleForm(function (Player $player, $data){
             if ($data === null){
                 return;
-            }
-            else{
+            }else{
                 $prefix = $this->config->get("Group_Command");
                 $name = $player->getName();
                 $consolecmd = new ConsoleCommandSender();
@@ -83,8 +112,7 @@ class MakeMeAdmin extends PluginBase implements Listener{
                     $this->getServer()->getCommandMap()->dispatch($consolecmd, $prefix.' '.$name.' '.$value[1]);
                     $player->sendMessage(TF::GREEN."You selected ".TF::YELLOW.$value[0].TF::RESET.TF::GREEN." as your rank!");
                     $this->getLogger()->notice(TF::YELLOW.$name." has changed their group to ".$value[0]);  
-                }
-                else{
+                }else{
                     $player->sendMessage(TF::RED."You don't have permission to switch to this rank!");
                     return;
                 }
@@ -104,12 +132,10 @@ class MakeMeAdmin extends PluginBase implements Listener{
                     if($value[3] == "path"){
                         $form->addButton($value[0], 0, $value[4]);
                     }
-                }
-                else{
+                }else{
                     $form->addButton($value[0]);
                 }
-            }
-            else{
+            }else{
                 $value[0] = TF::clean($value[0]);
                 $form->addButton(TF::RESET.TF::DARK_GRAY.$value[0]." (Locked)");
             }
