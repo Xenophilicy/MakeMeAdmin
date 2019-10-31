@@ -35,6 +35,10 @@ class MakeMeAdmin extends PluginBase implements Listener{
         $this->config->getAll();
         $this->ranks = $this->config->get("Ranks");
         $this->getLogger()->info("MakeMeAdmin has been enabled!");
+        $version = $this->config->get("VERSION");
+        if($version != "1.6.0"){
+            $this->getLogger()->warning("You have updated MakeMeAdmin but have an old config! Please delete your old config for the plugin to function propery!");
+        }
         foreach($this->ranks as $rank){
             $value = explode(":", $rank);
             if(isset($value[3])){
@@ -50,6 +54,18 @@ class MakeMeAdmin extends PluginBase implements Listener{
         }
     }
     
+    private function checkOP($user){
+        if($this->config->get("OP-Bypass") == FALSE){
+            return FALSE
+        }else{
+            if($user->isOp()){
+                return TRUE
+            }else{
+                return FALSE
+            }
+        }
+    }
+    
     private function startsWith($haystack, $needle){
         $length = strlen($needle);
         return (substr($haystack, 0, $length) === $needle);
@@ -61,7 +77,7 @@ class MakeMeAdmin extends PluginBase implements Listener{
                 $canSwitch = FALSE;
                 foreach($this->ranks as $rank){
                     $value = explode(":", $rank);
-                    if($sender->hasPermission($value[2])){
+                    if($sender->hasPermission($value[2]) || $sender->checkOP()){
                         $canSwitch = TRUE;
                     }
                 }
@@ -77,7 +93,7 @@ class MakeMeAdmin extends PluginBase implements Listener{
                             $consolecmd = new ConsoleCommandSender();
                             $value = explode(":", $this->ranks[$args[0]);
                             $value = str_replace("&", "§", $value);
-                            if($player->hasPermission($value[2])){
+                            if($player->hasPermission($value[2]) || $sender->checkOP()){
                                 $this->getServer()->getCommandMap()->dispatch($consolecmd, $prefix.' '.$name.' '.$value[1]);
                                 $player->sendMessage(TF::GREEN."You selected ".TF::YELLOW.$value[0].TF::RESET.TF::GREEN." as your rank!");
                                 $this->getLogger()->notice(TF::YELLOW.$name." has changed their group to ".$value[0]);
@@ -108,7 +124,7 @@ class MakeMeAdmin extends PluginBase implements Listener{
                 $consolecmd = new ConsoleCommandSender();
                 $value = explode(":", $this->ranks[$data]);
                 $value = str_replace("&", "§", $value);
-                if($player->hasPermission($value[2])){
+                if($player->hasPermission($value[2]) || $sender->checkOP()){
                     $this->getServer()->getCommandMap()->dispatch($consolecmd, $prefix.' '.$name.' '.$value[1]);
                     $player->sendMessage(TF::GREEN."You selected ".TF::YELLOW.$value[0].TF::RESET.TF::GREEN." as your rank!");
                     $this->getLogger()->notice(TF::YELLOW.$name." has changed their group to ".$value[0]);  
@@ -124,7 +140,7 @@ class MakeMeAdmin extends PluginBase implements Listener{
         foreach ($this->ranks as $rank) {
             $value = explode(":", $rank);
             $value = str_replace("&", "§", $value);
-            if($player->hasPermission($value[2])){
+            if($player->hasPermission($value[2]) || $sender->checkOP()){
                 if(isset($value[3])){
                     if($value[3] == "url"){
                         $form->addButton($value[0], 1, "https://".$value[4]);
