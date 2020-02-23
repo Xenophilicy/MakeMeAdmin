@@ -1,32 +1,94 @@
 # MADE BY:
-#   __    __                                          __        __  __  __                     
-#  /  |  /  |                                        /  |      /  |/  |/  |                    
-#  $$ |  $$ |  ______   _______    ______    ______  $$ |____  $$/ $$ |$$/   _______  __    __ 
-#  $$  \/$$/  /      \ /       \  /      \  /      \ $$      \ /  |$$ |/  | /       |/  |  /  |
-#   $$  $$<  /$$$$$$  |$$$$$$$  |/$$$$$$  |/$$$$$$  |$$$$$$$  |$$ |$$ |$$ |/$$$$$$$/ $$ |  $$ |
-#    $$$$  \ $$    $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$ |$$ |$$ |      $$ |  $$ |
-#  $$ /$$  |$$$$$$$$/ $$ |  $$ |$$ \__$$ |$$ |__$$ |$$ |  $$ |$$ |$$ |$$ |$$ \_____ $$ \__$$ |#
-#  $$ |  $$ |$$       |$$ |  $$ |$$    $$/ $$    $$/ $$ |  $$ |$$ |$$ |$$ |$$       |$$    $$ |
-#  $$/   $$/  $$$$$$$/ $$/   $$/  $$$$$$/  $$$$$$$/  $$/   $$/ $$/ $$/ $$/  $$$$$$$/  $$$$$$$ |
-#                                        $$ |                                      /  \__$$ |
-#                                        $$ |                                      $$    $$/ 
-#                                        $$/                                        $$$$$$/  
+#  __    __                                          __        __  __  __                     
+# /  |  /  |                                        /  |      /  |/  |/  |                    
+# $$ |  $$ |  ______   _______    ______    ______  $$ |____  $$/ $$ |$$/   _______  __    __ 
+# $$  \/$$/  /      \ /       \  /      \  /      \ $$      \ /  |$$ |/  | /       |/  |  /  |
+#  $$  $$<  /$$$$$$  |$$$$$$$  |/$$$$$$  |/$$$$$$  |$$$$$$$  |$$ |$$ |$$ |/$$$$$$$/ $$ |  $$ |
+#   $$$$  \ $$    $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$ |$$ |$$ |      $$ |  $$ |
+#  $$ /$$  |$$$$$$$$/ $$ |  $$ |$$ \__$$ |$$ |__$$ |$$ |  $$ |$$ |$$ |$$ |$$ \_____ $$ \__$$ |
+# $$ |  $$ |$$       |$$ |  $$ |$$    $$/ $$    $$/ $$ |  $$ |$$ |$$ |$$ |$$       |$$    $$ |
+# $$/   $$/  $$$$$$$/ $$/   $$/  $$$$$$/  $$$$$$$/  $$/   $$/ $$/ $$/ $$/  $$$$$$$/  $$$$$$$ |
+#                                         $$ |                                      /  \__$$ |
+#                                         $$ |                                      $$    $$/ 
+#                                         $$/                                        $$$$$$/       
 VERSION: "1.6.0" # Internal use only
 
 # You can use this toggle to allow players who are opped to switch to any rank they desire
-# WARNING: Setting this option to true will allow every opped player to bypass all permissions and switch to any rank!
-Bypass-OP: false
+# WARNING: Setting this option to true will allow every opped player to bypass all permissions and switch to ANY RANK!
+OP-Bypass: false
 
-# This is the prefix that users must put before their rank name when switching with commands
-# For example: using `/rank Owner` will switch your group to owner (As listed in the examples)
-# This also applies to the UI, for example: using `/rank` will simply open the rank UI
-Command-Prefix: "rank"
+# Choose whether to report group changes to the console
+# An example of this inside the console:
+# [MakeMeAdmin] Xenophilicy has changed their group to Moderator
+Report-Rank-Change: true
 
-# Command string used to change groups (Leave default if you're using PurePerms)
-# Available arguments:
-# {player} → Player's name placeholder
-# {group} → Group name placeholder
-Group-Set-String: "setgroup {player} {group}"
+Messages:
+
+  # Here you can customize the message that is sent in CONSOLE when a player changes groups
+  # {player} → Player's name placeholder
+  # {group} → Group name placeholder
+  Console-Report: "§b{player} §ehas changed their group to {group}"
+
+  # Here you can customize the message that is sent to the PLAYER when they change their rank
+  # {group} → Group name placeholder
+  Player-Report: "§aYou have selected {group} §r§a as your rank!"
+
+  # This is the message that is sent to a player when they choose a rank that they already have
+  # {group} → Group name placeholder
+  Current-Rank: "§eYour rank is already set to {group}§r§e!"
+
+  # This is the message that is sent to a player when they try to switch to a non-existent rank
+  # {group} → Group name placeholder
+  No-Exists: "§cThe rank {group} doesn't exist!"
+
+  # This is the message that is sent to a player when they don't have permission for a particular rank
+  # {group} → Group name placeholder
+  No-Rank: "§cYou don't have permission to switch to {group}§r§c!"
+
+  # This is the message that is sent to a player when they don't have permission to use the UI
+  No-Switch: "§cYou don't have permission to switch ranks!"
+
+Command:
+
+  # This is the prefix that users must put before their rank name when switching with commands
+  # For example: using `/rank Owner` will switch your group to owner (As listed in the examples)
+  # This also applies to the UI, for example: using `/rank` will simply open the rank UI
+  Prefix: "/rank"
+
+  # This is the description of the command that will show next to the command name in the command windows in-game
+  Description: "Easily switch your rank"
+
+  Permission:
+
+    # This is a setting that you can set to false to allow everyone access to the UI
+    # It is recommended you keep this false because anyone, regardless if they have a rank perm, can open the UI
+    Require: false
+
+    # This is the master permission node for all MakeMeAdmin rank commands
+    # All users who are allowed to use the command/open the UI must have this node
+    Node: rank.switch
+
+UI:
+
+  # This is the title of the rank UI
+  Title: "§6Server Ranks"
+
+  # This is the message that will show under your title on the rank UI
+  Message: "§aPick the rank to switch to!"
+
+Group:
+
+  # Choose what group manager you're using for your server
+  # PurePerms has the most support for the plugin and is the default dependency
+  # Other managers don't use direct API calls and therefore may be less reliable
+  Manager: PurePerms
+
+  # Command string used to change groups
+  # This has no effect if you're using PurePerms
+  # Available arguments:
+  # {player} → Player's name placeholder
+  # {group} → Group name placeholder
+  Command-String: "setgroup {player} {group}"
 
 # Every rank added needs a label, alias, and permission:
 # Label → The label will be the text you see in the UI
@@ -38,8 +100,8 @@ Group-Set-String: "setgroup {player} {group}"
 # Note: If you are using a URL, do NOT include the 'https://' or 'http://' in the link!
 # Add as many ranks as you'd like using this format → Label:Alias:Permission:ImageType:Path/URL
 Ranks:
-  - "&l&6Owner:owr:rank.switch.owner:url:file.xenoservers.net/Resources/GitHub-Resources/owner.png"
-  - "&l&4Admin:adm:rank.switch.admin:url:file.xenoservers.net/Resources/GitHub-Resources/admin.png"
-  - "&l&9Moderator:mod:rank.switch.mod:url:file.xenoservers.net/Resources/GitHub-Resources/mod.png"
-  - "&l&eHelper:hlp:rank.switch.helper:url:file.xenoservers.net/Resources/GitHub-Resources/helper.png"
-  - "&l&aGuest:gst:rank.switch.guest:url:file.xenoservers.net/Resources/GitHub-Resources/guest.png"
+  - "&l&6Owner:owr:rank.switch.owner:url:file.xenoservers.net/Resources/GitHub-Resources/makemeadmin/owner.png"
+  - "&l&4Admin:adm:rank.switch.admin:url:file.xenoservers.net/Resources/GitHub-Resources/makemeadmin/admin.png"
+  - "&l&9Moderator:mod:rank.switch.mod:url:file.xenoservers.net/Resources/GitHub-Resources/makemeadmin/mod.png"
+  - "&l&eHelper:hlp:rank.switch.helper:url:file.xenoservers.net/Resources/GitHub-Resources/makemeadmin/helper.png"
+  - "&l&aGuest:gst:rank.switch.guest:url:file.xenoservers.net/Resources/GitHub-Resources/makemeadmin/guest.png"
